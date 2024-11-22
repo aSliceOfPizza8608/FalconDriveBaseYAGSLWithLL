@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
@@ -131,6 +132,17 @@ public class Robot extends TimedRobot
     }
     m_robotContainer.setDriveMode();
     m_robotContainer.setMotorBrake(true);
+
+    SetupDriverOrientation();
+  }
+
+  private void SetupDriverOrientation() {
+    //This function will setup teh driver orientation.
+    var alliance = DriverStation.getAlliance();
+    if(alliance.isPresent()){
+      var isRedAlliance = alliance.get() == DriverStation.Alliance.Red ? true : false;
+      m_robotContainer.TranslationConversionFactor = isRedAlliance ? 1:-1;
+    }
   }
 
   /**

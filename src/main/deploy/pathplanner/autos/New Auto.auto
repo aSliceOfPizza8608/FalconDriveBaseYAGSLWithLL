@@ -16,6 +16,18 @@
           "data": {
             "pathName": "New Path"
           }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "New New Path"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Copy of New New Path"
+          }
         }
       ]
     }
