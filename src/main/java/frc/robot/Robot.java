@@ -61,9 +61,18 @@ public class Robot extends TimedRobot
    * <p>This runs after the mode specific periodic functions, but before LiveWindow and
    * SmartDashboard integrated updating.
    */
+
+   String nameOfLimelight = "limelight";//Default is just "limelight";
+   boolean doLL = false;
   @Override
   public void robotPeriodic()
   {
+    //grab latest LL measurement and feed it to the drivetrain
+    if(doLL)
+    {
+     m_robotContainer.drivebase.addRealVisionReading(nameOfLimelight);
+    }
+
     // Runs the Scheduler.  This is responsible for polling buttons, adding newly-scheduled
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
